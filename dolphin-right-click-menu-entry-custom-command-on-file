@@ -1,0 +1,17 @@
+# Dolphin right click file manu entry that allow to recode text files into UTF-8. It can fix MS Windows encoded files to be supported/readable on Linux and also on Windows.
+# install "recode" package on your Linux
+# paste following content to a new .desktop named file located in foller returned by command: find ~/ -type d -name ServiceMenus
+# recode.desktop
+
+[Desktop Entry]
+Type=Service
+ServiceTypes=KonqPopupMenu/Plugin
+MimeType=text/plain
+Actions=act
+X-KDE-Submenu=Exec. custom command on file
+
+[Desktop Action act]
+Name=Recode to UTF-8
+Icon=document-cleanup
+Exec=recode ms-ee "%U"
+#Exec = sh -c "recode ms-ee %U"
