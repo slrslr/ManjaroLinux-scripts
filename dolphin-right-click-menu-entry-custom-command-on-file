@@ -2,6 +2,9 @@
 # install "recode" package on your Linux
 # paste following content to a new .desktop named file located in foller returned by command: find ~/ -type d -name ServiceMenus
 # recode.desktop
+# or you may try just running following command:
+# wget https://raw.githubusercontent.com/slrslr/ManjaroLinux-scripts/main/dolphin-right-click-menu-entry-custom-command-on-file -O $(find ~/ -type d -name ServiceMenus)/recode.desktop
+# and exit/start Dolphin file manager, right click some text file
 
 [Desktop Entry]
 Type=Service
