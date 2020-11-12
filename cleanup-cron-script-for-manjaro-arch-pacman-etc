@@ -1,6 +1,6 @@
 # some cleanup tasks for Manjaro/Arch, possibly good to be placed to /etc/cron.weekly/cleanup
 # and then chmod:
-# wget -O - --no-check-certificate pathtogithub > cleanup;chown root:root cleanup;chmod 700 cleanup;sudo mv cleanup /etc/cron.weekly/cleanup
+# wget -qO - --no-check-certificate https://raw.githubusercontent.com/slrslr/ManjaroLinux-scripts/main/cleanup-cron-script-for-manjaro-arch-pacman-etc > cleanup;sudo chown root:root cleanup;sudo chmod 700 cleanup;sudo mv -v cleanup /etc/cron.weekly/cleanup
 
 # Vacuum journals
 sudo journalctl --vacuum-size=500M && sudo journalctl --vacuum-time=14d
