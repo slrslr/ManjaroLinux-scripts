@@ -1,2 +1,2 @@
 # ManjaroLinux-scripts
-Scripts that may simplify things in Manjaro (Arch based linux)
+Scripts that may speedup Manjaro (Arch based linux) customization after the OS installation
