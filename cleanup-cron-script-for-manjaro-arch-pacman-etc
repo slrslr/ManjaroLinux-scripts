@@ -27,3 +27,6 @@ sudo rm -rf ~/go || true
 
 # Find files not owned by any package
 sudo lostfiles 2>/dev/null
+
+# Update repository list
+sudo pacman-mirrors --fasttrack
