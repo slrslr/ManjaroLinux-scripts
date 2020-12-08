@@ -1,0 +1,35 @@
+#!/bin/bash
+# Linux bash script to monitor services and run it if it is not running.
+# How to use it?
+# 1. replace paths and names of the apps by your own apps that you want to keep running
+# 2. "chmod 755 keeprunningapps";add new cronjob to "crontab -e": * * * * * /bin/bash /home/you/scripts/keeprunningapps
+
+zpstatus=$(if [[ $(zpool status|grep state) == *"ONLINE"* ]];then echo "on";fi)
+ps=$(ps aux)
+p2pallowed=$(export|grep nop2p|wc -l)
+export DISPLAY=:0.0
+
+# Non ZFS requiring services: -----
+
+# ...
+
+# ZFS pool requiring services: -----
+
+# To temporarily disable launching all following apps, you may do command "cd;>p2poff" to disable and then "cd;rm p2poff" to enable again
+
+if [[ "$zpstatus" == "on" ]] && [[ ! -f /home/$(whoami)/p2poff && ! -f /home/$(whoami)/nop2p ]];then
+
+if [[ "$ps" != *"eiskaltdcpp-qt"* ]];then /home/$(whoami)/apps/eiskaltdcpp-qt-2.2.10-710-x86_64.AppImage &
+fi
+
+if [[ "$ps" != *"amule"* ]];then amule &
+fi
+
+if [[ "$ps" != *"nicotine"* ]];then nicotine &
+fi
+
+if [[ "$ps" != *"transmission-gtk"* ]];then systemctl --user start transmission-user.service
+fi
+
+fi
+
